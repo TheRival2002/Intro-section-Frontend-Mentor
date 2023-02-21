@@ -1,0 +1,462 @@
+:root {
+  --clr-neutral-100: hsl(0, 0%, 98%);
+  --clr-neutral-400: hsl(0, 0%, 41%);
+  --clr-neutral-900: hsl(0, 0%, 8%);
+
+  --ff-primary: "Epilogue", sans-serif;
+
+  --fs-300: 1rem;
+  --fs-400: 1.125rem;
+  --fs-500: 1.25rem;
+  --fs-600: 2.25rem;
+
+  --fw-regular: 500;
+  --fw-bold: 700;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* Utility classes */
+
+.text-neutral-100 {
+  color: var(--clr-neutral-100);
+}
+.text-neutral-400 {
+  color: var(--clr-neutral-400);
+}
+.text-neutral-900 {
+  color: var(--clr-neutral-900);
+}
+
+.bg-neutral-100 {
+  background-color: var(--clr-neutral-100);
+}
+.bg-neutral-400 {
+  background-color: var(--clr-neutral-400);
+}
+.bg-neutral-900 {
+  background-color: var(--clr-neutral-900);
+}
+
+.fs-300 {
+  font-size: var(--fs-300);
+}
+.fs-400 {
+  font-size: var(--fs-400);
+}
+.fs-500 {
+  font-size: var(--fs-500);
+}
+.fs-600 {
+  font-size: var(--fs-600);
+}
+
+.fw-regular {
+  font-weight: var(--fw-regular);
+}
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
+
+.sr-only {
+  position: absolute;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.transparent {
+  background-color: transparent;
+  border: none;
+}
+
+.side-padd {
+  padding-inline: 1rem;
+}
+.mt-32 {
+  margin-top: 2rem;
+}
+
+/* General styling */
+
+body {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-300);
+  font-weight: var(--fw-regular);
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-neutral-400);
+}
+
+.mobile-nav {
+  display: none;
+}
+
+.navigation-wrapper ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navigation-wrapper a {
+  text-decoration: none;
+  color: var(--clr-neutral-400);
+}
+
+.navigation-wrapper a:hover {
+  color: var(--clr-neutral-900);
+}
+
+.btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid var(--clr-neutral-400);
+  border-radius: 15px;
+  padding: 10px 25px;
+}
+
+.group-btn:hover {
+  border-color: var(--clr-neutral-900);
+}
+
+.group-btn:hover a {
+  color: var(--clr-neutral-900);
+}
+
+.features,
+.company {
+  cursor: pointer;
+  position: relative;
+  color: var(--clr-neutral-400);
+  padding: 0;
+}
+
+.features:hover,
+.company:hover {
+  color: var(--clr-neutral-900);
+}
+
+.info-title {
+  font-size: clamp(2rem, 5vw + 1rem, 5rem);
+}
+
+/* Header styling */
+
+@media (max-width: 50em) {
+  header {
+    margin-block: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobile-nav {
+    cursor: pointer;
+    display: block;
+    background: transparent;
+    background-image: url("./images/icon-menu.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 18px;
+    border: none;
+    z-index: 5;
+    transition: background-image 250ms ease-out;
+  }
+  .mobile-nav[aria-expanded="true"] {
+    background-image: url(./images/icon-close-menu.svg);
+    width: 26px;
+    height: 26px;
+  }
+  .navigation-wrapper {
+    background-color: var(--clr-neutral-100);
+    display: none;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 35%;
+    right: 0;
+    box-shadow: 0 0 10px 300px rgba(0, 0, 0, 0.6);
+  }
+  .navigation-wrapper[data-visible] {
+    display: block;
+  }
+  .primary-nav {
+    margin: 80px 0 30px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .button-group {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .group-btn {
+    padding-inline: 85px;
+  }
+}
+
+.features::after,
+.company::after {
+  content: "";
+  width: 10px;
+  height: 6px;
+  position: absolute;
+  top: 9px;
+  right: -25px;
+  background-image: url("./images/icon-arrow-down.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: background-image 150ms ease-out;
+}
+
+.features[aria-expanded="true"]::after,
+.company[aria-expanded="true"]::after {
+  background-image: url("./images/icon-arrow-up.svg");
+}
+
+.features-content,
+.company-content {
+  display: none;
+  position: relative;
+}
+
+.features-content[data-visible],
+.company-content[data-visible] {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0 0 55px;
+}
+
+.company-content[data-visible] {
+  margin: 20px 0 0 30px;
+}
+
+.features-content > li:nth-child(1) > a,
+.features-content > li:nth-child(2) > a,
+.features-content > li:nth-child(3) > a,
+.features-content > li:nth-child(4) > a {
+  position: relative;
+}
+
+.features-content > li:nth-child(1) > a::before,
+.features-content > li:nth-child(2) > a::before,
+.features-content > li:nth-child(3) > a::before,
+.features-content > li:nth-child(4) > a::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: -2px;
+}
+
+.features-content > li:nth-child(1) > a::before {
+  width: 14px;
+  height: 16px;
+  background-image: url("./images/icon-todo.svg");
+}
+
+.features-content > li:nth-child(2) > a::before {
+  width: 16px;
+  height: 16px;
+  background-image: url("./images/icon-calendar.svg");
+}
+
+.features-content > li:nth-child(3) > a::before {
+  width: 13px;
+  height: 17px;
+  background-image: url("./images/icon-reminders.svg");
+}
+
+.features-content > li:nth-child(4) > a::before {
+  width: 16px;
+  height: 16px;
+  background-image: url("./images/icon-planning.svg");
+}
+
+@media (min-width: 50em) {
+  header {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: max-content auto;
+    align-items: center;
+    gap: 60px;
+  }
+  .navigation-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .primary-nav {
+    display: flex;
+    gap: 60px;
+  }
+  .button-group {
+    display: flex;
+    gap: 20px;
+  }
+  .features-content[data-visible],
+  .company-content[data-visible] {
+    justify-content: center;
+    align-items: start;
+    position: absolute;
+    left: 10px;
+    background-color: var(--clr-neutral-100);
+    padding: 20px 35px 20px 60px;
+    border-radius: 5px;
+    box-shadow: 0 1px 10px 1px var(--clr-neutral-400);
+  }
+  .company-content[data-visible] {
+    left: 260px;
+    padding: 20px 30px;
+  }
+}
+
+/* Main styling */
+
+.hero-img {
+  min-width: 100%;
+}
+
+.main-info {
+  padding-bottom: 20px;
+  width: calc(100% - 2rem * 2);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.info {
+  margin-block: 50px;
+}
+
+.info-title {
+  line-height: 1.1;
+  margin-bottom: 15px;
+}
+
+.info > p {
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.info-btn {
+  background-color: var(--clr-neutral-900);
+  color: var(--clr-neutral-100);
+  border-color: var(--clr-neutral-900);
+}
+
+.info-btn:hover {
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-neutral-900);
+  border: 2px solid var(--clr-neutral-900);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 50em) {
+  .container {
+    width: min(1200px, 100% - 2rem * 2);
+    margin-inline: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .container picture {
+    grid-column: 2 / 3;
+  }
+  .hero-img {
+    padding-bottom: 30px;
+    max-width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+  .main-info {
+    text-align: left;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    align-self: flex-end;
+  }
+}

@@ -145,7 +145,8 @@ h6 {
 }
 
 .side-padd {
-  padding-inline: 1rem;
+  width: min(1300px, 100% - 1rem * 2);
+  margin-inline: auto;
 }
 .mt-32 {
   margin-top: 2rem;
@@ -373,23 +374,27 @@ body {
     display: flex;
     gap: 20px;
   }
+  .side-padd {
+    position: relative;
+  }
   .features-content[data-visible],
   .company-content[data-visible] {
     justify-content: center;
     align-items: start;
     position: absolute;
-    left: 10px;
+    left: 20%;
+    transform: translateX(-140%);
     background-color: var(--clr-neutral-100);
     padding: 20px 35px 20px 60px;
     border-radius: 5px;
     box-shadow: 0 1px 10px 1px var(--clr-neutral-400);
   }
   .company-content[data-visible] {
-    left: 260px;
+    left: 30%;
+    transform: translateX(-110%);
     padding: 20px 30px;
   }
 }
-
 /* Main styling */
 
 .hero-img {
